@@ -53,7 +53,7 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
-            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@docker exec -t peated-postgres-1 createdb -E utf-8 -h 127.0.0.1 -p 5432 -U postgres peated || exit 0",
             "@php artisan migrate --graceful --ansi"
         ],
         "dev": [
