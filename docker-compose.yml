@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile.postgres
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+      # - ALLOW_IP_RANGE=0.0.0.0/0
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis-data:/var/lib/postgresql
+    healthcheck:
+      test: "PGPASSWORD=postgres pg_isready -h 127.0.0.1 -U postgres -d postgres"
+  redis:
+    image: redis
+    restart: on-failure
+    ports:
+      - "6379:6379"
+  spotlight:
+    image: ghcr.io/getsentry/spotlight:latest
+    restart: on-failure
+    ports:
+      - "8969:8969"
+
+volumes:
+  postgis-data:
