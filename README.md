@@ -27,6 +27,19 @@ npm install && npm run build
 composer install
 ```
 
+Setup config:
+
+```
+cp .env.example .env
+php artisan key:generate
+```
+
+Run migrations:
+
+```
+php artisan migrate
+```
+
 Run the app:
 
 ```
