@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum EntryType: string
+enum EntityType: string
 {
     case Brand = 'brand';
     case Distillery = 'distillery';
