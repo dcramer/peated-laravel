@@ -43,6 +43,13 @@ class Country extends Model
         'total_distillers' => 'integer',
     ];
 
+    protected array $postgisColumns = [
+        'location' => [
+            'type' => 'geometry',
+            'srid' => 4326,
+        ],
+    ];
+
     public function regions()
     {
         return $this->hasMany(Region::class);

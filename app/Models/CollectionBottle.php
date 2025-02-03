@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class BottleTombstone extends Model
+class CollectionBottle extends Pivot
 {
     use HasFactory;
 
@@ -14,14 +14,14 @@ class BottleTombstone extends Model
      *
      * @var string
      */
-    protected $table = 'bottle_tombstone';
+    protected $table = 'collection_bottle';
 
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     /**
      * The attributes that are mass assignable.
@@ -29,8 +29,9 @@ class BottleTombstone extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'collection_id',
         'bottle_id',
-        'new_bottle_id',
+        'created_by_id',
     ];
 
     /**
@@ -39,17 +40,23 @@ class BottleTombstone extends Model
      * @var array<string, string>
      */
     protected $casts = [
+        'collection_id' => 'integer',
         'bottle_id' => 'integer',
-        'new_bottle_id' => 'integer',
+        'created_by_id' => 'integer',
     ];
+
+    public function collection()
+    {
+        return $this->belongsTo(Collection::class);
+    }
 
     public function bottle()
     {
-        return $this->belongsTo(Bottle::class, 'bottle_id');
+        return $this->belongsTo(Bottle::class);
     }
 
-    public function newBottle()
+    public function createdBy()
     {
-        return $this->belongsTo(Bottle::class, 'new_bottle_id');
+        return $this->belongsTo(User::class, 'created_by_id');
     }
 }
