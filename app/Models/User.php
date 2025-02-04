@@ -53,9 +53,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password_hash',
-        'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
     ];
 
     /**
@@ -64,7 +61,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $appends = [
-        'profile_photo_url',
+        'picture_url',
     ];
 
     /**
@@ -103,5 +100,10 @@ class User extends Authenticatable
     public function followers()
     {
         return $this->hasMany(Follow::class, 'to_user_id');
+    }
+
+    public function identities()
+    {
+        return $this->hasMany(Identity::class, 'user_id');
     }
 }

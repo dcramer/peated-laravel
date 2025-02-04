@@ -22,9 +22,9 @@ class Identity extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
         'provider',
         'external_id',
+        'user_id',
     ];
 
     /**
@@ -33,7 +33,6 @@ class Identity extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'user_id' => 'integer',
         'user_id' => 'integer',
     ];
 

@@ -11,6 +11,7 @@
     "require": {
         "php": "^8.2",
         "clickbar/laravel-magellan": "^1.7",
+        "google/apiclient": "^2.18",
         "laravel/framework": "^11.31",
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.0",
@@ -41,6 +42,7 @@
         }
     },
     "scripts": {
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -62,6 +64,7 @@
         ]
     },
     "extra": {
+        "google/apiclient-services": [],
         "laravel": {
             "dont-discover": []
         }
