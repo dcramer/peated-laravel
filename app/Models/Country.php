@@ -50,7 +50,6 @@ class Country extends Model
         ],
     ];
 
-    protected $with = ['regions', 'entities'];
 
     public function regions()
     {

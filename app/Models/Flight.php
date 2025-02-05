@@ -45,7 +45,7 @@ class Flight extends Model
 
     public function tastings()
     {
-        return $this->hasMany(Tasting::class);
+        return $this->hasMany(Tasting::class, 'flight_id');
     }
 
     public function createdBy()

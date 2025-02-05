@@ -42,7 +42,6 @@ class Region extends Model
         'total_distillers' => 'integer',
     ];
 
-    protected $with = ['country', 'entities'];
 
     public function country()
     {

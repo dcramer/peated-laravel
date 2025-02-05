@@ -40,6 +40,6 @@ class BottleAlias extends Model
 
     public function bottle()
     {
-        return $this->belongsTo(Bottle::class);
+        return $this->belongsTo(Bottle::class, 'bottle_id');
     }
 }

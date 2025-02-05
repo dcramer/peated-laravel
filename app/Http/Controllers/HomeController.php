@@ -31,8 +31,8 @@ class HomeController extends Controller
         ];
 
         return view('home', [
-            // 'recentTastings' => $recentTastings,
-            // 'popularBottles' => $popularBottles,
+            'recentTastings' => $recentTastings,
+            'popularBottles' => $popularBottles,
             'stats' => $stats,
         ]);
     }

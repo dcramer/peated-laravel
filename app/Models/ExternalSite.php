@@ -42,16 +42,16 @@ class ExternalSite extends Model
 
     public function reviews()
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class, 'external_site_id');
     }
 
     public function prices()
     {
-        return $this->hasMany(StorePrice::class);
+        return $this->hasMany(StorePrice::class, 'external_site_id');
     }
 
     public function config()
     {
-        return $this->hasMany(ExternalSiteConfig::class);
+        return $this->hasMany(ExternalSiteConfig::class, 'external_site_id');
     }
 }

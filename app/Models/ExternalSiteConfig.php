@@ -40,6 +40,6 @@ class ExternalSiteConfig extends Model
 
     public function externalSite()
     {
-        return $this->belongsTo(ExternalSite::class);
+        return $this->belongsTo(ExternalSite::class, 'external_site_id');
     }
 }

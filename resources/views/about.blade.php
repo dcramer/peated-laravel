@@ -4,7 +4,6 @@
         <x-app-header />
     </x-slot>
 
-
     <div class="flex gap-4 px-2 sm:px-0">
         <div class="prose prose-invert w-9/12 py-6">
             <h1>The Mission</h1>

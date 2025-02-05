@@ -40,7 +40,6 @@ class Badge extends Model
         'checks' => 'array',
     ];
 
-    protected $with = ['awards'];
 
     public function awards()
     {

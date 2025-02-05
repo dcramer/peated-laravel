@@ -47,12 +47,12 @@ class CollectionBottle extends Pivot
 
     public function collection()
     {
-        return $this->belongsTo(Collection::class);
+        return $this->belongsTo(Collection::class, 'collection_id');
     }
 
     public function bottle()
     {
-        return $this->belongsTo(Bottle::class);
+        return $this->belongsTo(Bottle::class, 'bottle_id');
     }
 
     public function createdBy()

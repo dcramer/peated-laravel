@@ -65,9 +65,9 @@ class Bottle extends Model
         'updated_at' => 'datetime',
     ];
 
-    protected $withCount = ['tastings', 'favorites'];
+    // protected $withCount = ['tastings', 'favorites'];
 
-    protected $with = ['distillers', 'bottlers'];
+    // protected $with = ['distillers', 'bottlers'];
 
     protected $appends = ['fullName'];
 

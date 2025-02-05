@@ -49,12 +49,12 @@ class FlightBottle extends Pivot
 
     public function flight()
     {
-        return $this->belongsTo(Flight::class);
+        return $this->belongsTo(Flight::class, 'flight_id');
     }
 
     public function bottle()
     {
-        return $this->belongsTo(Bottle::class);
+        return $this->belongsTo(Bottle::class, 'bottle_id');
     }
 
     public function createdBy()

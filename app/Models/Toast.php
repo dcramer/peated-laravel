@@ -21,7 +21,7 @@ class Toast extends Model
 
     public function tasting()
     {
-        return $this->belongsTo(Tasting::class);
+        return $this->belongsTo(Tasting::class, 'tasting_id');
     }
 
     public function createdBy()

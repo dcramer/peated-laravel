@@ -48,12 +48,12 @@ class StorePrice extends Model
 
     public function bottle()
     {
-        return $this->belongsTo(Bottle::class);
+        return $this->belongsTo(Bottle::class, 'bottle_id');
     }
 
     public function externalSite()
     {
-        return $this->belongsTo(ExternalSite::class);
+        return $this->belongsTo(ExternalSite::class, 'external_site_id');
     }
 
     public function priceHistory()

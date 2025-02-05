@@ -53,8 +53,6 @@ class Tasting extends Model
         'created_at' => 'datetime',
     ];
 
-    protected $with = ['bottle', 'createdBy', 'flight', 'comments', 'toasts', 'badgeAwards'];
-
     public function bottle(): BelongsTo
     {
         return $this->belongsTo(Bottle::class, 'bottle_id');

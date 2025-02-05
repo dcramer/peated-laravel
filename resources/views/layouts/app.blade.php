@@ -36,7 +36,7 @@
                     <main className="w-full max-w-7xl flex-auto lg:pl-64">
                     <!-- Page Content -->
                         <div class="mx-auto py-4 lg:p-8">
-                            {{ $slot }}
+                            {{ $slot ?? null }}
                         </div>
                     </main>
                 </div>
