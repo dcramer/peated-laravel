@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tasting extends Model
 {
@@ -52,37 +55,37 @@ class Tasting extends Model
 
     protected $with = ['bottle', 'createdBy', 'flight', 'comments', 'toasts', 'badgeAwards'];
 
-    public function bottle()
+    public function bottle(): BelongsTo
     {
         return $this->belongsTo(Bottle::class, 'bottle_id');
     }
 
-    public function createdBy()
+    public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by_id');
     }
 
-    public function flight()
+    public function flight(): BelongsTo
     {
         return $this->belongsTo(Flight::class, 'flight_id');
     }
 
-    public function comments()
+    public function comments(): HasMany
     {
         return $this->hasMany(Comment::class, 'tasting_id');
     }
 
-    public function toasts()
+    public function toasts(): HasMany
     {
         return $this->hasMany(Toast::class, 'tasting_id');
     }
 
-    public function badgeAwards()
+    public function badgeAwards(): HasMany
     {
         return $this->hasMany(TastingBadgeAward::class, 'tasting_id');
     }
 
-    public function friendUsers()
+    public function friendUsers(): BelongsToMany
     {
         return $this->belongsToMany(User::class, null, 'friends');
     }

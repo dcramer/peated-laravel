@@ -11,20 +11,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Get recent activity
+        // // Get recent activity
         $recentTastings = Tasting::with(['createdBy', 'bottle'])
-            ->latest()
+            ->orderBy('created_at', 'desc')
             ->take(10)
             ->get();
 
-        // Get popular bottles
+        // // Get popular bottles
         $popularBottles = Bottle::withCount('tastings')
-            ->orderBy('tastings_count', 'desc')
-            ->take(5)
-            ->get();
-
-        // Get active users
-        $activeUsers = User::withCount('tastings')
             ->orderBy('tastings_count', 'desc')
             ->take(5)
             ->get();
@@ -37,9 +31,8 @@ class HomeController extends Controller
         ];
 
         return view('home', [
-            'recentTastings' => $recentTastings,
-            'popularBottles' => $popularBottles,
-            'activeUsers' => $activeUsers,
+            // 'recentTastings' => $recentTastings,
+            // 'popularBottles' => $popularBottles,
             'stats' => $stats,
         ]);
     }

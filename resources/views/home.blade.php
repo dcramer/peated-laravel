@@ -1,8 +1,9 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="title">Home</x-slot>
+    <x-slot name="header">
+        <x-app-header />
+    </x-slot>
 
-@section('title', 'Home')
-
-@section('content')
     <div class="space-y-8">
         {{-- Hero Section --}}
         <div class="relative overflow-hidden rounded-xl bg-slate-800 px-6 py-12 shadow-2xl sm:px-12 sm:py-24">
@@ -94,4 +95,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-app-layout>

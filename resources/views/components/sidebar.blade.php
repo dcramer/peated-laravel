@@ -49,7 +49,7 @@
                 <li>
                     <ul role="list" class="-mx-2 space-y-1">
                         <x-sidebar-link
-                            href="{{ route('bottles') }}"
+                            href="{{ route('bottles.index') }}"
                             :active="request()->routeIs('bottles.*')"
                             icon="bottle"
                         >

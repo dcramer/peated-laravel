@@ -2,7 +2,7 @@
 
 <ul role="list" class="divide-y divide-slate-800 border-slate-800 lg:border-b lg:border-r">
     @if($query && $canSuggestAdd)
-        <x-list-item color="highlight">
+        <x.list-item color="highlight">
             <svg class="hidden h-12 w-12 flex-none rounded p-2 sm:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
             </svg>
@@ -27,20 +27,20 @@
                     @endif
                 </div>
             </div>
-        </x-list-item>
+        </x.list-item>
     @endif
 
     @foreach($results as $result)
-        <x-list-item>
+        <x.list-item>
             <x-search.result :result="$result" :direct-to-tasting="$directToTasting" />
-        </x-list-item>
+        </x.list-item>
     @endforeach
 
     @if(!$canSuggestAdd && $results->isEmpty() && $query !== '')
-        <x-list-item no-hover>
+        <x.list-item no-hover>
             <p class="text-muted p-5">
                 We couldn't find anything matching your search query.
             </p>
-        </x-list-item>
+        </x.list-item>
     @endif
 </ul>
