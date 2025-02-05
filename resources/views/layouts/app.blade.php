@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -22,21 +22,22 @@
     <body class="h-full">
         <x-banner />
 
-        @livewire('navigation-menu')
-
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class="bg-white shadow-sm">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div class="flex min-h-screen flex-col">
+            @if (isset($header))
+                <x-header>
                     {{ $header }}
-                </div>
-            </header>
-        @endif
+                </x-header>
+            @endif
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+            <!-- Page Content -->
+            <main class="flex-1">
+                {{ $slot }}
+            </main>
+
+            <x-footer>
+                @stack('footer')
+            </x-footer>
+        </div>
 
         @if (config('services.fathom.site_id'))
             <x-fathom
