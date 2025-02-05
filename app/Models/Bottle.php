@@ -65,6 +65,17 @@ class Bottle extends Model
         'updated_at' => 'datetime',
     ];
 
+    protected $withCount = ['tastings', 'favorites'];
+
+    protected $with = ['distillers', 'bottlers'];
+
+    protected $appends = ['fullName'];
+
+    public function getFullNameAttribute()
+    {
+        return $this->name;
+    }
+
     public function brand()
     {
         return $this->belongsTo(Entity::class, 'brand_id');
