@@ -22,21 +22,29 @@
     <body class="h-full">
         <x-banner />
 
-        <div class="flex min-h-screen flex-col">
-            @if (isset($header))
-                <x-header>
-                    {{ $header }}
-                </x-header>
-            @endif
+        <div class="min-h-screen">
+            {{ $sidebar ?? view('components.sidebar') }}
 
-            <!-- Page Content -->
-            <main class="flex-1">
-                {{ $slot }}
-            </main>
+            <div class="flex flex-col lg:pl-64">
+                @if (isset($header))
+                    <x-header>
+                        {{ $header }}
+                    </x-header>
+                @endif
 
-            <x-footer>
-                @stack('footer')
-            </x-footer>
+                <div className="flex">
+                    <main className="w-full max-w-7xl flex-auto lg:pl-64">
+                    <!-- Page Content -->
+                        <div class="mx-auto py-4 lg:p-8">
+                            {{ $slot }}
+                        </div>
+                    </main>
+                </div>
+
+                <x-footer>
+                    @stack('footer')
+                </x-footer>
+            </div>
         </div>
 
         @if (config('services.fathom.site_id'))

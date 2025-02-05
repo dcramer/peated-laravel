@@ -129,4 +129,7 @@ return [
 
     'description' => env('APP_DESCRIPTION', 'Track your whisky journey'),
 
+    'github_repo' => env('GITHUB_REPO', 'https://github.com/your/repo'),
+    'discord_link' => env('DISCORD_LINK', 'https://discord.gg/your-server'),
+
 ];

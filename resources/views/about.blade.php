@@ -1,5 +1,9 @@
 <x-app-layout>
     <x-slot name="title">About</x-slot>
+    <x-slot name="header">
+        <x-app-header />
+    </x-slot>
+
 
     <div class="flex gap-4 px-2 sm:px-0">
         <div class="prose prose-invert w-9/12 py-6">

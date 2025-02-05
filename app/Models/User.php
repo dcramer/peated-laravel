@@ -106,4 +106,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Identity::class, 'user_id');
     }
+
+    public function getPictureUrlAttribute()
+    {
+        return $this->profile_picture; // or whatever your actual column name is
+    }
 }
