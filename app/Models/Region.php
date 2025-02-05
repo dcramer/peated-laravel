@@ -42,13 +42,15 @@ class Region extends Model
         'total_distillers' => 'integer',
     ];
 
+    protected $with = ['country', 'entities'];
+
     public function country()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Country::class, 'country_id');
     }
 
     public function entities()
     {
-        return $this->hasMany(Entity::class);
+        return $this->hasMany(Entity::class, 'region_id');
     }
 }

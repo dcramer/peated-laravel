@@ -98,21 +98,21 @@ class Bottle extends Model
 
     public function tastings()
     {
-        return $this->hasMany(Tasting::class);
+        return $this->hasMany(Tasting::class, 'bottle_id');
     }
 
     public function aliases()
     {
-        return $this->hasMany(BottleAlias::class);
+        return $this->hasMany(BottleAlias::class, 'bottle_id');
     }
 
     public function tags()
     {
-        return $this->hasMany(BottleTag::class);
+        return $this->hasMany(BottleTag::class, 'bottle_id');
     }
 
     public function flavorProfiles()
     {
-        return $this->hasMany(BottleFlavorProfile::class);
+        return $this->hasMany(BottleFlavorProfile::class, 'bottle_id');
     }
 }

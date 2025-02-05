@@ -50,13 +50,15 @@ class Country extends Model
         ],
     ];
 
+    protected $with = ['regions', 'entities'];
+
     public function regions()
     {
-        return $this->hasMany(Region::class);
+        return $this->hasMany(Region::class, 'country_id');
     }
 
     public function entities()
     {
-        return $this->hasMany(Entity::class);
+        return $this->hasMany(Entity::class, 'country_id');
     }
 }

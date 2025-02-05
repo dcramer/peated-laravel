@@ -40,8 +40,10 @@ class Badge extends Model
         'checks' => 'array',
     ];
 
+    protected $with = ['awards'];
+
     public function awards()
     {
-        return $this->hasMany(BadgeAward::class);
+        return $this->hasMany(BadgeAward::class, 'badge_id');
     }
 }

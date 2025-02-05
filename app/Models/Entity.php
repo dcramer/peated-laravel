@@ -45,14 +45,16 @@ class Entity extends Model
         ],
     ];
 
+    protected $with = ['country', 'region', 'createdBy', 'bottles', 'bottledBottles', 'distilledBottles', 'aliases'];
+
     public function country()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Country::class, 'country_id');
     }
 
     public function region()
     {
-        return $this->belongsTo(Region::class);
+        return $this->belongsTo(Region::class, 'region_id');
     }
 
     public function createdBy()
@@ -77,7 +79,7 @@ class Entity extends Model
 
     public function aliases()
     {
-        return $this->hasMany(EntityAlias::class);
+        return $this->hasMany(EntityAlias::class, 'entity_id');
     }
 
     public function toSearchableArray()

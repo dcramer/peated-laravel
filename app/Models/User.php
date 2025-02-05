@@ -109,6 +109,6 @@ class User extends Authenticatable
 
     public function getPictureUrlAttribute()
     {
-        return $this->profile_picture; // or whatever your actual column name is
+        return $this->picture_url;
     }
 }

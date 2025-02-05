@@ -50,9 +50,11 @@ class Tasting extends Model
         'created_at' => 'datetime',
     ];
 
+    protected $with = ['bottle', 'createdBy', 'flight', 'comments', 'toasts', 'badgeAwards'];
+
     public function bottle()
     {
-        return $this->belongsTo(Bottle::class);
+        return $this->belongsTo(Bottle::class, 'bottle_id');
     }
 
     public function createdBy()
@@ -62,22 +64,22 @@ class Tasting extends Model
 
     public function flight()
     {
-        return $this->belongsTo(Flight::class);
+        return $this->belongsTo(Flight::class, 'flight_id');
     }
 
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class, 'tasting_id');
     }
 
     public function toasts()
     {
-        return $this->hasMany(Toast::class);
+        return $this->hasMany(Toast::class, 'tasting_id');
     }
 
     public function badgeAwards()
     {
-        return $this->hasMany(TastingBadgeAward::class);
+        return $this->hasMany(TastingBadgeAward::class, 'tasting_id');
     }
 
     public function friendUsers()
