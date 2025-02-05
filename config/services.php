@@ -40,4 +40,16 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
     ],
 
+    'fathom' => [
+        'site_id' => env('FATHOM_SITE_ID'),
+    ],
+
+    'github' => [
+        'repo' => env('GITHUB_REPO', 'https://github.com/dcramer/peated'),
+    ],
+
+    'discord' => [
+        'link' => env('DISCORD_LINK', 'https://discord.gg/your-invite'),
+    ],
+
 ];

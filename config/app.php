@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Peated'),
 
     /*
     |--------------------------------------------------------------------------
@@ -124,5 +124,9 @@ return [
     ],
 
     'version' => env('APP_VERSION', '1.0.0'),
+
+    'theme_color' => env('APP_THEME_COLOR', '#18181b'),
+
+    'description' => env('APP_DESCRIPTION', 'Track your whisky journey'),
 
 ];
